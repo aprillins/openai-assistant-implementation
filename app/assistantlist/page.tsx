@@ -5,6 +5,21 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+type Assistant = {
+  id: string,
+  object: string
+  name: string
+  created_at: number,
+  description: string,
+  model: string,
+  instructions: string,
+  tools: [object],
+  top_p: number,
+  temperature: number,
+  tool_resources: { code_interpreter: [object] },
+  metadata: {},
+  response_format: string
+}
 
 export default function Home() {
   const router = useRouter();
@@ -23,7 +38,6 @@ export default function Home() {
     fetchAssistant()
   }, [])
 
-  
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
@@ -53,7 +67,7 @@ export default function Home() {
 
       <div>
         <ul>
-          {assistantList.map((assistant, index) => (
+          {assistantList.map((assistant:Assistant, index) => (
             <li key={index} className="mb-2 bg-gray-100 p-2 rounded">{assistant.name}</li>
           ))}
         </ul>

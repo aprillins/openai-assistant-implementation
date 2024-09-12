@@ -31,3 +31,49 @@ body {
     text-wrap: balance;
   }
 }
+
+.markdown p {
+  margin-bottom: 1rem; /* Adjust spacing between paragraphs */
+}
+
+.markdown pre {
+  padding: 1rem; /* Padding for code blocks */
+  margin: 1rem 0; /* Margin for separation */
+  background-color: #f6f8fa; /* Or any other color */
+  overflow:scroll
+}
+
+.markdown code {
+  background-color: #f0f0f0; /* Background for inline code */
+  padding: 0.2rem 0.4rem; /* Padding for inline code */
+  border-radius: 4px; /* Round the edges */
+}
+
+/* styles/globals.css (or your main CSS file) */
+.prettify-code {
+  position: relative; /* Required for positioning of copy button */
+}
+
+.prettify-code pre {
+  position: relative; /* Keep the track of position for the button */
+  overflow-x: auto; /* Scroll long code */
+  padding: 1rem; /* Ensure padding */
+  border-radius: 4px; /* Rounded corners */
+}
+
+.copy-button {
+  position: absolute; /* Position the button within the code block */
+  top: 5px; /* Adjust based on your layout */
+  right: 10px; /* Adjust based on your layout */
+  background-color: rgba(0, 123, 255, 0.7); /* Copy button color */
+  color: white; /* Text color */
+  border: none; /* No border */
+  padding: 5px; /* Padding */
+  border-radius: 3px; /* Rounded edges */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.2s; /* Smooth background change */
+}
+
+.copy-button:hover {
+  background-color: rgba(0, 123, 255, 1); /* Darker on hover */
+}

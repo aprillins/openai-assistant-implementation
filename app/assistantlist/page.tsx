@@ -2,9 +2,27 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import axios from "axios";
+import { useEffect, useState } from "react";
+
 
 export default function Home() {
   const router = useRouter();
+  const [assistantList, setAssistantList] = useState([])
+
+  useEffect(() => {
+    const fetchAssistant = async () => {
+      try {
+        const response = await axios.get("/api/assistant/list")
+        setAssistantList(response.data.assistants)
+      } catch (e) {
+        console.log('Failed to get assistants')
+      }
+    }
+
+    fetchAssistant()
+  }, [])
+
   
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -33,7 +51,13 @@ export default function Home() {
         </div>
       </div>
 
-      
+      <div>
+        <ul>
+          {assistantList.map((assistant, index) => (
+            <li key={index} className="mb-2 bg-gray-100 p-2 rounded">{assistant.name}</li>
+          ))}
+        </ul>
+      </div>
 
       <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
         <a

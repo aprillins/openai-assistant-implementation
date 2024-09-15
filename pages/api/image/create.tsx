@@ -1,5 +1,6 @@
 // pages/api/image/create.tsx
 // OpenAI API endpoint https://platform.openai.com/docs/api-reference/images/create
+// https://openai.com/api/pricing/
 
 import OpenAI from "openai";
 const keykey = process.env.NEXT_PUBLIC_OPENAI_API_KEY

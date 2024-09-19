@@ -7,21 +7,24 @@ import { useEffect, useState } from "react";
 // This is custom interface for image
 
 export default function Home() {
+  const [models, setModels] = useState([])
+
   const getModels = async (e) => {
     e.preventDefault()
     try {
       const response = await axios.get("/api/model/list")
-      
+      const models = response.data.models.data
+      setModels(models)
       console.log('Frontend -> var=response: ', response)
+      console.log('Frontend -> var=response: ', models)
     } catch (e) {
       console.log('Frontend -> error=Failed to get models')
     }
   }
 
   useEffect(() => {
-    getModels;
-  }, []);
-
+  
+  },[])
   
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -52,8 +55,13 @@ export default function Home() {
 
       <div>
             <button type="submit" onClick={getModels} className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-200 text-sm">
-              Model List        
+              Get Model List        
             </button>
+            <ul>
+              {models.map((model, index) => (
+                <li key={index} className="mb-2 bg-gray-100 p-2 rounded">Model ID: {model.id}. Model Owner: {model.owned_by}</li>
+              ))}
+            </ul>
       </div>
 
       <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">

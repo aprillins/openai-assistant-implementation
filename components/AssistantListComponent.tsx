@@ -5,7 +5,9 @@ import OpenAI from "openai";
 const keykey = process.env.NEXT_PUBLIC_OPENAI_API_KEY
 const openai = new OpenAI({
   apiKey: keykey, // Ensure your API key is added in .env.local
+  dangerouslyAllowBrowser: true // this shouldn't be in production
 });
+
 let assistantList = []
 
 const AssistantListComponent = async () => {

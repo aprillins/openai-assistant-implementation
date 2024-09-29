@@ -37,3 +37,4 @@ next-env.d.ts
 
 # next.js
 /public/audio/
+/public/files/

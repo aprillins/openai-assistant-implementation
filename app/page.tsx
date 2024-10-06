@@ -1,5 +1,5 @@
 'use client'
-
+// https://platform.openai.com/playground/assistants?assistant=asst_gl3Hd6zYMZ2d7k9hjy2rMIDH&thread=thread_OR8XiXN13gQtoTXOGNSw8zvf
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -7,103 +7,88 @@ export default function Home() {
   const router = useRouter();
   
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <div className="flex h-screen">
+            {/* Sidebar */}
+            <div className="bg-teal-300 min-w-[240px] max-w-[300px] p-5">
+                <h2 className="text-lg font-bold mb-4">Settings</h2>
+                {/* Model Selection */}
+    <select className="w-full mb-2 bg-white p-2 rounded shadow min-w-[150px] max-w-[100%]">
+        <option value="dall-e-2">dall-e-2</option>
+        <option value="dall-e-3">dall-e-3</option>
+    </select>
 
-      
+    {/* Number of Images */}
+    <select className="w-full mb-2 bg-white p-2 rounded shadow min-w-[150px] max-w-[100%]">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+    {/* Quality Selection */}
+    <select className="w-full mb-2 bg-white p-2 rounded shadow min-w-[150px] max-w-[100%]">
+        <option value="standard">Standard</option>
+        <option value="hd">HD</option>
+    </select>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+    {/* Response Format */}
+    <select className="w-full mb-2 bg-white p-2 rounded shadow min-w-[150px] max-w-[100%]">
+        <option value="url">URL</option>
+        <option value="b64_json">Base64 JSON</option>
+    </select>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+    {/* Size Selection */}
+    <select className="w-full mb-2 bg-white p-2 rounded shadow min-w-[150px] max-w-[100%]">
+        <option value="1024x1024">1024x1024</option>
+        <option value="512x512">512x512</option>
+        <option value="256x256">256x256</option>
+        <option value="1792x1024">1792x1024</option>
+        <option value="1024x1792">1024x1792</option>
+    </select>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+    {/* Style Selection for DALL-E 3 */}
+    <select className="w-full mb-2 bg-white p-2 rounded shadow min-w-[150px] max-w-[100%]">
+        <option value="vivid">Vivid</option>
+        <option value="natural">Natural</option>
+    </select>
+            </div>
+
+            {/* Main content */}
+            <div className="bg-gray-200 w-3/4 p-5 flex flex-col">
+                {/* Submission Section */}
+                <div className="mb-4 flex items-center justify-center bg-gray-200 p-2">
+                    <input
+                        type="text"
+                        placeholder="Text field"
+                        className="border rounded-md p-2 min-w-[600px] mx-2"
+                    />
+                    <button className="bg-blue-500 text-white rounded-md px-4 py-2">
+                        Submit
+                    </button>
+                </div>
+
+                {/* Scrollable Result Section */}
+                <div className="flex-grow overflow-auto">
+                    <h2 className="font-bold mb-2">Result</h2>
+                    <div className="grid grid-cols-4 gap-4">
+                        {/* Filling with random base64 images */}
+                        {Array.from({ length: 20 }).map((_, index) => (
+                            <div key={index} className="bg-blue-400 h-48 rounded-md overflow-hidden">
+                                <img 
+                                    src={`data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAIEAAABCAIAAACoVxQRAAAAAXNSR0IArs4c6QAAETlEQVRIS2NsYGBgAAABAAE4BqYAAAnzMDAE+Ug2gAAMWSwBoAAAAAABvAwEAAHizMDAEAAAABCIY6lAjwAAAAAElFTkSuQmCC`}
+                                    alt={`Box ${index + 1}`} 
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>  );
 }

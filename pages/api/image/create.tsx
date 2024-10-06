@@ -18,10 +18,11 @@ export default async function handler(req, res) {
     console.log("Backend -> var=prompt", prompt)
     // Fetch the list of generated images from OpenAI
     const image = await openai.images.generate({ 
-      model: "dall-e-2", 
+      model: "dall-e-3", 
       prompt: prompt,
-      size: "256x256",
-      n: 2,
+      size: "1024x1024",
+      n: 1,
+      style: "vivid",
       user: "sanboxed_localhost_000001"
     });
 

@@ -11,6 +11,7 @@ import ResetIcon from '@mui/icons-material/RestartAlt'
 import Message from '@/components/message'
 import classes from './sandbox.module.css'
 import { useAppStore } from '@/store/appstore'
+
 import { SimpleId } from '@/lib/utils'
 
 export default function Sandbox() {
@@ -108,6 +109,11 @@ export default function Sandbox() {
                     thread_id: threadId,
                 })
             })
+            // const response = await axios.post('/api/stream/route', {
+            //     message: text,
+            //     thread_id: threadId
+            // })
+            console.log("text", text, "thread_id", threadId)
 
             const reader = response.body.getReader()
 
